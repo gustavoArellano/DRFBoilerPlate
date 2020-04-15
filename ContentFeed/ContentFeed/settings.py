@@ -123,4 +123,7 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'ContentFeed')
+
 CORS_ORIGIN_WHITELIST = 'http://localhost:3000',
