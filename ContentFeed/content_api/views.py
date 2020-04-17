@@ -1,16 +1,23 @@
 from __future__ import unicode_literals
-
 from django.shortcuts import render
+from django.contrib import messages
+from django.conf import settings
 from rest_framework import viewsets
 from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+import bcrypt
+from django.contrib.messages import get_messages 
+from . import models
+from . import serializers
+from django.views.decorators.csrf import ensure_csrf_cookie
 
-from content_api.models import User, Item
-from content_api.serializers import UserSerializer, ItemSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
+    queryset = models.User.objects.all()
+    serializer_class = serializers.UserSerializer
 
 class ItemViewSet(viewsets.ModelViewSet):
-    queryset = Item.objects.all()
-    serializer_class = ItemSerializer
+    queryset = models.Item.objects.all()
+    serializer_class = serializers.ItemSerializer
+
+

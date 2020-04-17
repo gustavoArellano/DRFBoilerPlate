@@ -11,7 +11,9 @@ router = routers.DefaultRouter()
 router.register(r'user', UserViewSet, basename='user')
 router.register(r'item', ItemViewSet, basename='item')
 
+
 urlpatterns = [
     url(r'^api/', include(router.urls)),
     url('admin/', admin.site.urls),
+
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
