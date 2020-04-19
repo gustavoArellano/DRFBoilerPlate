@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'content_api',
-    'corsheaders'
+    'corsheaders',
+    'djoser',
 ]
 
 MIDDLEWARE = [
@@ -103,6 +104,15 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework.authentication.TokenAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ),
+    'DEFAULT_PERMISSIONS_CLASSES': (
+        'rest_framework.permissions.IsAuthenticatied',
+    )
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/3.0/topics/i18n/

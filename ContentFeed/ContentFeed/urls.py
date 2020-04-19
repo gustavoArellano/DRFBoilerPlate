@@ -14,6 +14,8 @@ router.register(r'item', ItemViewSet, basename='item')
 
 urlpatterns = [
     url(r'^api/', include(router.urls)),
+    url(r'^auth/', include('djoser.urls')),
+    url(r'^auth/', include('djoser.urls.authtoken')),
     url('admin/', admin.site.urls),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
